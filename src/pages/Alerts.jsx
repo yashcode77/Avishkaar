@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import AlertsList from './AlertList';
+import AddAlert from './AddAlert';
 
 // Sample alerts data
 const alertsData = [
@@ -87,38 +89,53 @@ const alertsData = [
   
 
 // Alert component
-const Alert = ({ agencyName, agencyLogoLink, type, timestamp, message, severity, location, locationMapLink, source, contact }) => (
+const Alert = ({ agencyName, agencyLogoLink, type, timestamp, message, severity, location, locationMapLink, source, contact }) => {
+  const [alerts, setAlerts] = useState([]);
+
+  const handleAddAlert = (newAlert) => {
+    // Update the array of alerts
+    setAlerts([...alerts, newAlert]);
+  };
+
+  return(
   <div className="rounded-lg bg-white shadow-md p-4 m-4 border border-gray-200">
-    <div className="flex justify-between items-center">
-      <div className="flex items-center">
-        <img src={agencyLogoLink} alt={`${agencyName} Logo`} className="h-12 w-12 rounded-full object-cover mr-4" />
-        <div>
-          <div className="text-lg font-semibold text-gray-800">{agencyName}</div>
-          <div className="text-sm text-gray-600">{timestamp}</div>
-        </div>
+  <div className="flex justify-between items-center">
+    <div className="flex items-center">
+      <img src={agencyLogoLink} alt={`${agencyName} Logo`} className="h-12 w-12 rounded-full object-cover mr-4" />
+      <div>
+        <div className="text-lg font-semibold text-gray-800">{agencyName}</div>
+        <div className="text-sm text-gray-600">{timestamp}</div>
       </div>
-      <div className="text-sm text-gray-600">{severity.toUpperCase()}</div>
     </div>
-    <div className="mt-2 text-gray-800">{message}</div>
-    <div className="mt-4">
-      <div className="text-gray-700">Location: {location}</div>
-      <a
-        href={locationMapLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-600 hover:underline"
-      >
-        View on Map
-      </a>
-    </div>
-    <div className="mt-4 text-gray-700">Source: {source}</div>
-    <div className="mt-4">
-      <div className="text-gray-700">Contact:</div>
-      <div>Phone: {contact.phoneNumber}</div>
-      <div>Email: {contact.email}</div>
-    </div>
+    <div className="text-sm text-gray-600">{severity.toUpperCase()}</div>
   </div>
-);
+  <div className="mt-2 text-gray-800">{message}</div>
+  <div className="mt-4">
+    <div className="text-gray-700">Location: {location}</div>
+    <a
+      href={locationMapLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-600 hover:underline"
+    >
+      View on Map
+    </a>
+  </div>
+  <div className="mt-4 text-gray-700">Source: {source}</div>
+  <div className="mt-4">
+    <div className="text-gray-700">Contact:</div>
+    <div>Phone: {contact.phoneNumber}</div>
+    <div>Email: {contact.email}</div>
+  </div>
+</div>
+
+/* <div>
+<AddAlert onAddAlert={handleAddAlert} />
+      <AlertsList alerts={alerts} />
+</div> */
+)
+  
+};
 
 // AlertList component
 const AlertList = () => (

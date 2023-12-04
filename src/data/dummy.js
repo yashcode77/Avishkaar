@@ -1,7 +1,10 @@
 import React from 'react';
 import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
 import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
-import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
+import { GrUserAdmin, GrAlert } from 'react-icons/gr';
+import { GoOrganization, GoAlertFill } from 'react-icons/go';
+import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft, BsChatText } from 'react-icons/bs';
+import { CgProfile } from 'react-icons/cg';
 import { BiColorFill } from 'react-icons/bi';
 import { IoMdContacts } from 'react-icons/io';
 import { RiContactsLine, RiStockLine } from 'react-icons/ri';
@@ -22,6 +25,7 @@ import product5 from './product5.jpg';
 import product6 from './product6.jpg';
 import product7 from './product7.jpg';
 import product8 from './product8.jpg';
+import { ImStatsDots } from "react-icons/im";
 
 export const gridOrderImage = (props) => (
   <div>
@@ -475,7 +479,7 @@ export const links = [
     links: [
       {
         name: 'Admin',
-        icon: <FiShoppingBag />,
+        icon: <GrUserAdmin />,
       },
     ],
   },
@@ -485,15 +489,19 @@ export const links = [
     links: [
       {
         name: 'Agencies',
-        icon: <AiOutlineShoppingCart />,
+        icon: <GoOrganization />,
       },
       {
         name: 'Alerts',
-        icon: <IoMdContacts />,
+        icon: <GrAlert />,
+      },
+      {
+        name: 'Statistics',
+        icon: <ImStatsDots />,
       },
       {
         name: 'Chat',
-        icon: <RiContactsLine />,
+        icon: <BsChatText />,
       },
     ],
   },
@@ -525,31 +533,27 @@ export const cartData = [
 
 export const chatData = [
   {
-    image:
-      avatar2,
-    message: 'lorem ipsum',
-    desc: 'lorem ipsum',
+    image: 'https://cdni.autocarindia.com/Utils/ImageResizerWM.ashx?n=http%3A%2F%2Fcdni.autocarindia.com%2FFeatures%2FDSC_5983-copy.jpg&c=0',
+    message: 'Fire Department of Mumbai',
+    desc: 'Flood Warning ',
     time: '9:08 AM',
   },
   {
-    image:
-      avatar3,
-    message: 'lorem ipsum',
-    desc: 'lorem ipsum',
+    image: 'https://pbs.twimg.com/ext_tw_video_thumb/1540552786969915392/pu/img/Uou-Wp3B4CqVMHDK.jpg:large',
+    message: 'Delhi Police Department',
+    desc: 'Traffic Congestion',
     time: '11:56 AM',
   },
   {
-    image:
-      avatar4,
-    message: 'lorem ipsum',
-    desc: 'lorem ipsum',
+    image: 'https://redcrosskarnataka.org/wp-content/uploads/2021/01/cropped-Final-Logo-1536x1536-1-1024x1024.png',
+    message: 'Red Cross Society of Bangalore',
+    desc: 'emergency',
     time: '4:39 AM',
   },
   {
-    image:
-      avatar,
-    message: 'lorem ipsum',
-    desc: 'lorem ipsum',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Indian_Coast_Guard_Logo.svg/1200px-Indian_Coast_Guard_Logo.svg.png',
+    message: 'Coast Guard Chennai',
+    desc: 'Storm Warning',
     time: '1:12 AM',
   },
 ];
@@ -789,7 +793,7 @@ export const themeColors = [
 
 export const userProfileData = [
   {
-    icon: <BsCurrencyDollar />,
+    icon: <CgProfile />,
     title: 'My Profile',
     desc: 'Account Settings',
     iconColor: '#03C9D7',
@@ -801,13 +805,6 @@ export const userProfileData = [
     desc: 'Messages & Emails',
     iconColor: 'rgb(0, 194, 146)',
     iconBg: 'rgb(235, 250, 242)',
-  },
-  {
-    icon: <FiCreditCard />,
-    title: 'My Tasks',
-    desc: 'To-do and Daily Tasks',
-    iconColor: 'rgb(255, 244, 229)',
-    iconBg: 'rgb(254, 201, 15)',
   },
 ];
 
